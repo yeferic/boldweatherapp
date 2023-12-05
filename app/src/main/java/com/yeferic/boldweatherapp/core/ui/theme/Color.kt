@@ -1,4 +1,4 @@
-package com.yeferic.boldweatherapp.ui.theme
+package com.yeferic.boldweatherapp.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
