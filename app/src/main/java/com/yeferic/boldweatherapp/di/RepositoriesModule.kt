@@ -1,8 +1,10 @@
 package com.yeferic.boldweatherapp.di
 
+import com.yeferic.boldweatherapp.data.repositories.ItemDetailRepositoryImpl
 import com.yeferic.boldweatherapp.data.repositories.ItemResultRepositoryImpl
 import com.yeferic.boldweatherapp.data.sources.local.dao.ItemResultDao
 import com.yeferic.boldweatherapp.data.sources.remote.ItemResultApi
+import com.yeferic.boldweatherapp.domain.repositories.ItemDetailRepository
 import com.yeferic.boldweatherapp.domain.repositories.ItemResultRepository
 import dagger.Module
 import dagger.Provides
@@ -21,5 +23,13 @@ class RepositoriesModule {
         api: ItemResultApi,
     ): ItemResultRepository {
         return ItemResultRepositoryImpl(itemResultDao, api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideItemDetailRepository(
+        api: ItemResultApi,
+    ): ItemDetailRepository {
+        return ItemDetailRepositoryImpl(api)
     }
 }

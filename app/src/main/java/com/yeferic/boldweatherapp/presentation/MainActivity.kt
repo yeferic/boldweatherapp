@@ -19,6 +19,8 @@ import com.yeferic.boldweatherapp.core.commons.Routes.DETAIL_SCREEN
 import com.yeferic.boldweatherapp.core.commons.Routes.DETAIL_SCREEN_NAME_PARAMETER
 import com.yeferic.boldweatherapp.core.commons.Routes.SEARCH_SCREEN
 import com.yeferic.boldweatherapp.core.ui.theme.BoldWeatherAppTheme
+import com.yeferic.boldweatherapp.presentation.detail.ui.DetailScreen
+import com.yeferic.boldweatherapp.presentation.detail.viewmodel.DetailViewModel
 import com.yeferic.boldweatherapp.presentation.search.ui.SearchScreen
 import com.yeferic.boldweatherapp.presentation.search.viewmodel.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,6 +29,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val searchViewModel: SearchViewModel by viewModels()
+    private val detailViewModel: DetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +50,11 @@ class MainActivity : ComponentActivity() {
                         composable("$DETAIL_SCREEN{$DETAIL_SCREEN_NAME_PARAMETER}") {
                             val itemName =
                                 it.arguments?.getString(DETAIL_SCREEN_NAME_PARAMETER).orEmpty()
+                            DetailScreen(
+                                viewModel = detailViewModel,
+                                navController = navigationController,
+                                name = itemName,
+                            )
                         }
                     }
                 }
