@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BoldWeatherApp</string>
+    <string name="icon_description">iconDescription</string>
+    <string name="search_hint">Buscar...</string>
+    <string name="search_error">No fue posible realizar la búsqueda</string>
 </resources>

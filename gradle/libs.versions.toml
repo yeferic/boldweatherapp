@@ -8,6 +8,8 @@ espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.6.2"
 activityCompose = "1.8.1"
 composeBom = "2023.10.01"
+navigationCompose = "2.7.5"
+composeLiveData = "1.5.4"
 retrofit = "2.9.0"
 daggerHilt = "2.47"
 room = "2.6.1"
@@ -27,6 +29,8 @@ espresso-core = { group = "androidx.test.espresso", name = "espresso-core", vers
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+compose-live-data = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "composeLiveData" }
 ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
