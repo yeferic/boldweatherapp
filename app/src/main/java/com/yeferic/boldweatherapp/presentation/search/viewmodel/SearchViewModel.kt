@@ -27,8 +27,9 @@ class SearchViewModel @Inject constructor(
     private val clearSearchUseCase: ClearSearchUseCase,
 ) : ViewModel() {
     companion object {
-        private const val RANGE_SEARCH_ITEMS: Int = 30
+        const val RANGE_SEARCH_ITEMS: Int = 30
         private const val MIN_TEXT_LENGTH_TO_SEARCH: Int = 3
+        const val SEARCH_ERROR: String = "ERROR"
     }
 
     private val _uiState = MutableStateFlow<SearchUIState>(SearchUIState.InitState)
@@ -94,7 +95,7 @@ class SearchViewModel @Inject constructor(
                 RANGE_SEARCH_ITEMS,
             ).collect {
                 when (it) {
-                    is ServiceEventState.Error -> setUIStateAsErrorState("ERROR")
+                    is ServiceEventState.Error -> setUIStateAsErrorState(SEARCH_ERROR)
                     ServiceEventState.Loading -> setUIStateAsLoadingState()
                     is ServiceEventState.Success -> {
                         _itemsResult.value = it.data
@@ -116,7 +117,7 @@ class SearchViewModel @Inject constructor(
                         RANGE_SEARCH_ITEMS,
                     ).collect {
                         when (it) {
-                            is ServiceEventState.Error -> setUIStateAsErrorState("ERROR")
+                            is ServiceEventState.Error -> setUIStateAsErrorState(SEARCH_ERROR)
                             ServiceEventState.Loading -> _loadingMoreItems.postValue(true)
                             is ServiceEventState.Success -> {
                                 _itemsResult.value = it.data

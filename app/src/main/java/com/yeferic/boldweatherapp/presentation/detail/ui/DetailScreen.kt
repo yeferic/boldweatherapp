@@ -94,5 +94,5 @@ fun DetailScreen(viewModel: DetailViewModel, navController: NavHostController, n
         }
     }
 
-    viewModel.getProductDetail(name)
+    viewModel.getItemDetail(name)
 }

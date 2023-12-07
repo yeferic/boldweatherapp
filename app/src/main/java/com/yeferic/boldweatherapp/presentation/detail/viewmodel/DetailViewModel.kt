@@ -19,7 +19,7 @@ class DetailViewModel @Inject constructor(
     private val getItemDetailUseCase: GetItemDetailUseCase,
 ) : ViewModel() {
     companion object {
-        private const val DAYS: Int = 3
+        const val DAYS: Int = 3
     }
 
     private val _uiState = MutableStateFlow<DetailUIState>(DetailUIState.InitState)
@@ -28,7 +28,7 @@ class DetailViewModel @Inject constructor(
     private val _itemDetail = MutableStateFlow(ItemDetail())
     val itemDetail: StateFlow<ItemDetail> = _itemDetail
 
-    fun getProductDetail(name: String) {
+    fun getItemDetail(name: String) {
         viewModelScope.launch {
             getItemDetailUseCase(name, DAYS)
                 .collect {
