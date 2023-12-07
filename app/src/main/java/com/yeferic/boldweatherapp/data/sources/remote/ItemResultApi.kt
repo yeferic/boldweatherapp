@@ -12,7 +12,7 @@ interface ItemResultApi {
         @Query("q") query: String,
     ): Response<List<ItemResultDto>>
 
-    @GET("v1/forecast_.json")
+    @GET("v1/forecast.json")
     suspend fun detail(
         @Query("q") name: String,
         @Query("days") days: Int,
